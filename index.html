@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title>Mead Heritage Ranch – Where Families Level Up Together</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0f0f1a;
+            --dark2: #1a1a2e;
+            --dark3: #16213e;
+            --accent: #2d6a4f;
+            --accent-light: #40916c;
+            --gold: #d4a373;
+            --gold-light: #e9c46a;
+            --text: #f8f9fa;
+            --text-muted: #adb5bd;
+            --card-bg: rgba(26, 26, 46, 0.85);
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background var(--transition), padding var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 10px 32px;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .nav-logo span {
+            color: var(--accent-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--text) !important;
+            padding: 8px 20px;
+            border-radius: 6px;
+            transition: background var(--transition) !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=600&auto=format&fit=crop') 0% 0% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=600&auto=format&fit=crop') 33.33% 0% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=600&auto=format&fit=crop') 66.66% 0% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=600&auto=format&fit=crop') 0% 33.33% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1681980016814-0bac16721969?q=80&w=600&auto=format&fit=crop') 33.33% 33.33% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop') 66.66% 33.33% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=600&auto=format&fit=crop') 0% 66.66% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop') 33.33% 66.66% / 33.33% 33.33% no-repeat,
+                url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=600&auto=format&fit=crop') 66.66% 66.66% / 33.33% 33.33% no-repeat;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(transparent, var(--dark));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 36px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(45, 106, 79, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* ─── SECTION HEADERS ─── */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 16px auto 20px;
+            border-radius: 2px;
+        }
+
+        /* ─── ABOUT ─── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .collage-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--dark2);
+            aspect-ratio: 3 / 2;
+        }
+
+        .collage-item::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 10px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--text);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ─── AMENITY CARDS ─── */
+        .amenities {
+            background: var(--dark2);
+        }
+
+        .amenity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .amenity-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 115, 0.08);
+            transition: transform var(--transition), box-shadow var(--transition);
+            backdrop-filter: blur(4px);
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border-color: rgba(212, 163, 115, 0.2);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 115, 0.08);
+            transition: transform var(--transition), box-shadow var(--transition);
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border-color: rgba(212, 163, 115, 0.2);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-body {
+            padding: 20px 16px;
+        }
+
+        .team-body h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .team-body .team-title {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .team-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .team-body .team-icon {
+            margin-top: 12px;
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .amenity-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .amenity-img .icon-overlay {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(15, 15, 26, 0.8);
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--gold);
+            backdrop-filter: blur(4px);
+        }
+
+        .amenity-body {
+            padding: 24px;
+        }
+
+        .amenity-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .amenity-body p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+        }
+
+        .amenity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .amenity-tags span {
+            background: rgba(45, 106, 79, 0.2);
+            color: var(--accent-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ─── PRICING ─── */
+        .pricing {
+            background: var(--dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 40px 32px;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+            text-align: center;
+            transition: transform var(--transition), border-color var(--transition);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.03);
+            background: rgba(26, 26, 46, 0.95);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--dark);
+            padding: 4px 20px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 163, 115, 0.3);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-4px);
+        }
+
+        .pricing-name {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--accent-light);
+            width: 18px;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* ─── SIGN UP ─── */
+        .signup-section {
+            background: var(--dark2);
+        }
+
+        .signup-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .signup-wrapper h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .signup-wrapper p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group select option {
+            background: var(--dark2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .form-checkbox input {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .form-checkbox label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .signup-wrapper .btn {
+            width: 100%;
+            font-size: 1.05rem;
+            padding: 16px;
+        }
+
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-msg i {
+            font-size: 3rem;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+        }
+
+        .success-msg h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .success-msg p {
+            color: var(--text-muted);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--dark);
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color var(--transition);
+        }
+
+        .footer-socials a:hover {
+            color: var(--gold);
+        }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(15, 15, 26, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                backdrop-filter: blur(12px);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-collage {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-wrapper {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-4px);
+            }
+
+            .amenity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-collage {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="navbar">
+        <div class="nav-logo">MEAD <span>HERITAGE RANCH</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#signup" class="nav-cta">Join Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Opening Summer 2031</div>
+            <h1>Where <span>Families</span><br />Level Up Together</h1>
+            <p>
+                300 acres where families build strength, grow together, and forge lasting community. Every trail, field, and facility is designed to help you level up as a family.
+            </p>
+            <p class="hero-quote" style="font-size: 1.3rem; font-style: italic; color: var(--gold); margin-top: 16px;">"Your family is the mission."</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">View Membership</a>
+                <a href="#amenities" class="btn btn-outline">Explore the Ranch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid fade-up">
+                <div class="about-collage">
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=800&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=800&auto=format&fit=crop')" data-label="The Cage &amp; Mat"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=800&auto=format&fit=crop')" data-label="Ranch Range"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=800&auto=format&fit=crop')" data-label="Air Zone"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1681980016814-0bac16721969?q=80&w=800&auto=format&fit=crop')" data-label="Recovery Lodge"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop')" data-label="Garage Bar &amp; Grill"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=800&auto=format&fit=crop')" data-label="Ridgeview Farm"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop')" data-label="Community Events"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=800&auto=format&fit=crop')" data-label="Heritage Lake"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1670254494696-909c4e429575?q=80&w=800&auto=format&fit=crop')" data-label="Golf Course"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1771784630899-f95d3ba54e5d?q=80&w=800&auto=format&fit=crop')" data-label="Archery"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1650939434244-eded1d6e10b7?q=80&w=800&auto=format&fit=crop')" data-label="Basketball Courts"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756672619539-b44173fffbe8?q=80&w=800&auto=format&fit=crop')" data-label="Tennis Courts"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1498066370397-ccef12c288c4?q=80&w=800&auto=format&fit=crop')" data-label="Olympic Pool"></div>
+                </div>
+                <div class="about-text">
+                    <h3>The Mead Heritage Ranch <em style="color:var(--gold);font-style:normal;">Family Destination</em></h3>
+                    <p>
+                        Mead Heritage Ranch isn't just a membership — it's a family destination and a community. Set on 300 acres of private land, our property is designed for families who want more than a typical gym or country club. This is a place to train together, build skills, create lasting memories, and grow closer as a family — surrounded by other families on the same mission.
+                    </p>
+                    <p>
+                        From strength training and martial arts to marksmanship, archery, swimming, basketball, tennis, and golf — every discipline is an opportunity to grow together. Weekend cookouts, bonfire gatherings, community events, and farm days bring everyone together. You'll grow stronger as individuals and closer as a family, rooted in a community that shares your values.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">300</div>
+                            <div class="stat-label">Acres</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Facilities</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Access</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ AMENITIES ═══ -->
+    <section class="section amenities" id="amenities">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Explore the <em>Destination</em></h2>
+                <div class="section-divider"></div>
+                <p>Fourteen distinct facilities spread across 300 acres — each built for a different part of the family journey.</p>
+            </div>
+
+            <div class="amenity-grid">
+
+                <!-- Gym -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-dumbbell"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Iron Haven Gym</h3>
+                        <p>Fully loaded with premium free weights, plate-loaded machines, cardio rigs, and a dedicated functional training zone. This is the heart of the compound.</p>
+                        <div class="amenity-tags">
+                            <span>Free Weights</span>
+                            <span>Cardio</span>
+                            <span>Functional Training</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MMA / BJJ -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-fist-raised"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>The Cage &amp; Mat</h3>
+                        <p>Train boxing and Brazilian Jiu-Jitsu in a dedicated fight space with pro-grade rings, mats, and heavy bags. Classes for all levels — from first-timers to competitive fighters.</p>
+                        <div class="amenity-tags">
+                            <span>Boxing Classes</span>
+                            <span>BJJ Classes</span>
+                            <span>All Levels Welcome</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gun Range -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-crosshairs"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Ranch Range</h3>
+                        <p>Multiple outdoor ranges including pistol, rifle, and tactical bays. Monthly competitions, certified safety courses, and marksmanship training for all skill levels.</p>
+                        <div class="amenity-tags">
+                            <span>Pistol &amp; Rifle</span>
+                            <span>Tactical Bays</span>
+                            <span>Monthly Competitions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FPV Drone -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-helicopter"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Air Zone</h3>
+                        <p>A dedicated FPV drone course winding through trees and obstacles. Equipment rentals, training for beginners, and monthly drone racing competitions with prizes.</p>
+                        <div class="amenity-tags">
+                            <span>FPV Training</span>
+                            <span>Rentals Available</span>
+                            <span>Monthly Races</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Therapy -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1681980016814-0bac16721969?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-hot-tub"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>The Recovery Lodge</h3>
+                        <p>Dry sauna, cedar hot tub, and a 50°F cold plunge. A dedicated space for contrast therapy, recovery from training, and mental clarity.</p>
+                        <div class="amenity-tags">
+                            <span>Sauna</span>
+                            <span>Hot Tub</span>
+                            <span>Cold Plunge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant / Bar -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-fire"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>The Garage Bar &amp; Grill</h3>
+                        <p>A rustic venue with a massive community fire pit, indoor dining, and an outdoor patio. Craft beer, wood-fired food, and a place to connect after a long day of training.</p>
+                        <div class="amenity-tags">
+                            <span>Community Fire Pit</span>
+                            <span>Indoor/Outdoor</span>
+                            <span>Craft Beer &amp; Grill</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farm -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-paw"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Ridgeview Farm</h3>
+                        <p>A small family farm with goats, chickens, pigs, and horses. Open as a petting zoo for kids and families. A reminder that strength comes in many forms.</p>
+                        <div class="amenity-tags">
+                            <span>Petting Zoo</span>
+                            <span>Family Friendly</span>
+                            <span>Farm Animals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Community &amp; Events</h3>
+                        <p>Weekly meetups, group training sessions, guest speakers, competition watch parties, and seasonal compound-wide events. This is where families find their people.</p>
+                        <div class="amenity-tags">
+                            <span>Weekly Events</span>
+                            <span>Group Training</span>
+                            <span>Guest Speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lake -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-water"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Heritage Lake</h3>
+                        <p>A private 6-acre lake with a wooden fishing pier, shaded sitting areas, and catch-and-release fishing. Perfect for quiet mornings with a rod or bringing the family to relax by the water.</p>
+                        <div class="amenity-tags">
+                            <span>Fishing Pier</span>
+                            <span>Family Friendly</span>
+                            <span>Catch &amp; Release</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Golf -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1670254494696-909c4e429575?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-golf-ball"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Golf Course</h3>
+                        <p>A scenic 9-hole course with a full driving range and putting course. Perfect for family tee times, junior golf clinics, and weekend scrambles.</p>
+                        <div class="amenity-tags">
+                            <span>9-Hole Course</span>
+                            <span>Driving Range</span>
+                            <span>Junior Clinics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archery -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1771784630899-f95d3ba54e5d?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-bullseye"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Archery</h3>
+                        <p>Four covered lanes with professional targets and beginner instruction. Master the bow as a family activity that builds focus and patience.</p>
+                        <div class="amenity-tags">
+                            <span>Covered Lanes</span>
+                            <span>Beginner Instruction</span>
+                            <span>Family Activity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basketball -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1650939434244-eded1d6e10b7?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-basketball-ball"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Basketball Courts</h3>
+                        <p>Two full-size outdoor courts with night lighting. Run pick-up games, family tournaments, or work on your jumper under the lights.</p>
+                        <div class="amenity-tags">
+                            <span>Full-Size Courts</span>
+                            <span>Night Lighting</span>
+                            <span>Family Tournaments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tennis -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1756672619539-b44173fffbe8?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-table-tennis"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Tennis Courts</h3>
+                        <p>Two Har-Tru hydro courts with professional surface. Lessons, clinics, and open play for all ages and skill levels.</p>
+                        <div class="amenity-tags">
+                            <span>Har-Tru Courts</span>
+                            <span>Lessons &amp; Clinics</span>
+                            <span>All Skill Levels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Olympic Pool -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1498066370397-ccef12c288c4?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-swimmer"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Olympic Pool</h3>
+                        <p>A 50-meter heated Olympic pool with dedicated lap lanes, diving area, and kids' splash zone. Perfect for family swim time, lap swimming, and cooling off after a day on the ranch.</p>
+                        <div class="amenity-tags">
+                            <span>50-Meter Pool</span>
+                            <span>Diving Area</span>
+                            <span>Kids' Splash Zone</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TEAM ═══ -->
+    <section class="section team" id="team">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Meet the <em>Family</em></h2>
+                <div class="section-divider"></div>
+                <p>The people behind Mead Heritage Ranch who make every visit unforgettable.</p>
+            </div>
+
+            <div class="team-grid">
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Devin</h4>
+                        <div class="team-title">Founder &amp; Owner</div>
+                        <p>A Marine Corps veteran with a vision — Devin founded Mead Heritage Ranch to create a place where purpose-driven families can train, grow, and build community together. His leadership sets the tone for everything we do.</p>
+                        <div class="team-icon"><i class="fas fa-mountain"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Mayra</h4>
+                        <div class="team-title">IT Director</div>
+                        <p>Mayra keeps the ranch connected. She manages our technology infrastructure — from member systems to facility operations — ensuring a seamless experience for every family that visits.</p>
+                        <div class="team-icon"><i class="fas fa-laptop-code"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Jamie</h4>
+                        <div class="team-title">Operations Director</div>
+                        <p>Jamie brings years of small business expertise to the ranch. She oversees daily operations, member relations, and business growth — making sure families feel welcomed and everything runs smoothly.</p>
+                        <div class="team-icon"><i class="fas fa-building"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>John</h4>
+                        <div class="team-title">FPV Drone &amp; Air Zone Lead</div>
+                        <p>A former Marine with a passion for flight, John leads our Air Zone program. He builds, flies, and teaches FPV drone operation — from first-time pilots to competitive racing.</p>
+                        <div class="team-icon"><i class="fas fa-drone"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1694459471264-6c4c2ebf26da?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Will</h4>
+                        <div class="team-title">Marksmanship &amp; Range Director</div>
+                        <p>With a background as a military sniper and years of USPSA and precision rifle competition, Will brings unmatched expertise to the range. He leads family marksmanship training at every skill level.</p>
+                        <div class="team-icon"><i class="fas fa-crosshairs"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1765302840608-6c67281260c3?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Chris</h4>
+                        <div class="team-title">Combat Sports Director</div>
+                        <p>A black belt in Brazilian Jiu-Jitsu and a champion boxer, Chris brings world-class fight training to The Cage &amp; Mat. He coaches everyone from first-timers to competitors with patience and expertise.</p>
+                        <div class="team-icon"><i class="fas fa-fist-raised"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1693163637018-cec278130a11?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Trevor</h4>
+                        <div class="team-title">Golf &amp; Outdoor Programs</div>
+                        <p>An Army veteran who brings discipline and precision to the golf course. Trevor leads family golf clinics, course management, and outdoor adventure programs.</p>
+                        <div class="team-icon"><i class="fas fa-flag"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1750943082154-663e88a6ffe9?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Josh</h4>
+                        <div class="team-title">Head Chef &amp; Restaurant Manager</div>
+                        <p>Josh runs the kitchen at The Garage Bar &amp; Grill. A seasoned chef and restaurant manager, he crafts meals that bring families together around the table — made with fresh ingredients and a whole lot of passion.</p>
+                        <div class="team-icon"><i class="fas fa-utensils"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING ═══ -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Simple <em>Membership</em></h2>
+                <div class="section-divider"></div>
+                <p>Monthly subscriptions with no long-term contracts. Cancel anytime.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <div class="pricing-card fade-up">
+                    <div class="pricing-name">Daybreak</div>
+                    <div class="pricing-price">$79 <span>/mo</span></div>
+                    <p class="pricing-desc">Weekday access to the gym, mats, and recovery lodge.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Gym &amp; cardio (Mon–Fri 5a–9p)</li>
+                        <li><i class="fas fa-check"></i> Grappling mats &amp; open mat sessions</li>
+                        <li><i class="fas fa-check"></i> Sauna &amp; cold plunge access</li>
+                        <li><i class="fas fa-check"></i> One group class per week</li>
+                        <li><i class="fas fa-check"></i> Garage Bar &amp; Grill 10% discount</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Choose Plan</button>
+                </div>
+
+                <div class="pricing-card featured fade-up">
+                    <div class="pricing-name">Full Send</div>
+                    <div class="pricing-price">$149 <span>/mo</span></div>
+                    <p class="pricing-desc">Unlimited access to every facility, all classes, and competitions.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Daybreak, plus:</li>
+                        <li><i class="fas fa-check"></i> Unlimited BJJ &amp; MMA classes</li>
+                        <li><i class="fas fa-check"></i> Gun range &amp; competitions included</li>
+                        <li><i class="fas fa-check"></i> FPV drone training &amp; race entry</li>
+                        <li><i class="fas fa-check"></i> 24/7 facility access every day</li>
+                        <li><i class="fas fa-check"></i> Guest passes (2 per month)</li>
+                        <li><i class="fas fa-check"></i> Garage Bar &amp; Grill 20% discount</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Choose Plan</button>
+                </div>
+
+                <div class="pricing-card fade-up">
+                    <div class="pricing-name">Founder's</div>
+                    <div class="pricing-price">$249 <span>/mo</span></div>
+                    <p class="pricing-desc">All-access plus family farm privileges and exclusive events.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Full Send, plus:</li>
+                        <li><i class="fas fa-check"></i> Family access (spouse &amp; kids)</li>
+                        <li><i class="fas fa-check"></i> Petting zoo &amp; farm access for family</li>
+                        <li><i class="fas fa-check"></i> Private training sessions (2/mo)</li>
+                        <li><i class="fas fa-check"></i> Exclusive Founder's events &amp; dinners</li>
+                        <li><i class="fas fa-check"></i> Priority registration for competitions</li>
+                        <li><i class="fas fa-check"></i> Garage Bar &amp; Grill 30% discount</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Choose Plan</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SIGN UP ═══ -->
+    <section class="section signup-section" id="signup">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Join the <em>Family</em></h2>
+                <div class="section-divider"></div>
+                <p>Fill out the form below and we'll reach out with next steps.</p>
+            </div>
+
+            <div class="signup-wrapper fade-up">
+                <form id="signupForm">
+                    <h3>Become a Member</h3>
+                    <p>No commitment — we'll schedule a tour and answer all your questions.</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="John" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Doe" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="(555) 555-5555" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan">Interest Plan</label>
+                        <select id="plan">
+                            <option value="Daybreak">Daybreak — $79/mo</option>
+                            <option value="Full Send" selected>Full Send — $149/mo</option>
+                            <option value="Founder's">Founder's — $249/mo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="agree" required />
+                        <label for="agree">I agree to receive updates about Mead Heritage Ranch membership and opening announcements.</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit Interest</button>
+                </form>
+
+                <div class="success-msg" id="successMsg">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>You're on the list!</h4>
+                    <p>We'll reach out within 48 hours with more details about your Mead Heritage Ranch membership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>MEAD HERITAGE RANCH</h3>
+                    <p>300 acres of training, recovery, and family living. Opening Summer 2031.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Facilities</h4>
+                    <ul>
+                        <li><a href="#amenities">Iron Haven Gym</a></li>
+                        <li><a href="#amenities">The Cage &amp; Mat</a></li>
+                        <li><a href="#amenities">Ranch Range</a></li>
+                        <li><a href="#amenities">Air Zone</a></li>
+                        <li><a href="#amenities">Recovery Lodge</a></li>
+                        <li><a href="#amenities">Garage Bar &amp; Grill</a></li>
+                        <li><a href="#amenities">Ridgeview Farm</a></li>
+                        <li><a href="#amenities">Community Events</a></li>
+                        <li><a href="#amenities">The Lake</a></li>
+                        <li><a href="#amenities">Golf Course</a></li>
+                        <li><a href="#amenities">Archery</a></li>
+                        <li><a href="#amenities">Basketball Courts</a></li>
+                        <li><a href="#amenities">Tennis Courts</a></li>
+                        <li><a href="#amenities">Olympic Pool</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#signup">Join Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@meadheritageranch.com">hello@meadheritageranch.com</a></li>
+                        <li><a href="#">(555) RANCH-MHR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mead Heritage Ranch. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ JAVASCRIPT ═══ -->
+    <script>
+        // ─── NAV SCROLL ───
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ─── HAMBURGER ───
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ─── SCROLL ANIMATIONS ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ─── FORM ───
+        const form = document.getElementById('signupForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
