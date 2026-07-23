@@ -338,8 +338,7 @@
 
         .about-collage {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 10px;
             border-radius: 12px;
             overflow: hidden;
@@ -354,7 +353,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: var(--dark2);
-            min-height: 95px;
+            aspect-ratio: 4 / 3;
         }
 
         .collage-item::after {
@@ -370,14 +369,6 @@
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-        }
-
-        .collage-item.tall {
-            grid-row: span 2;
-        }
-
-        .collage-item.wide {
-            grid-column: span 2;
         }
 
         .about-text h3 {
@@ -845,10 +836,7 @@
             }
 
             .about-collage {
-                min-height: 300px;
-            }
-            .collage-item {
-                min-height: 70px;
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-grid {
@@ -944,7 +932,7 @@
         <div class="container">
             <div class="about-grid fade-up">
                 <div class="about-collage">
-                    <div class="collage-item tall" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=500&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=500&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=500&auto=format&fit=crop')" data-label="The Cage &amp; Mat"></div>
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=500&auto=format&fit=crop')" data-label="Iron Ridge Range"></div>
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1639334165837-3d3063e05095?q=80&w=500&auto=format&fit=crop')" data-label="Air Zone"></div>
@@ -952,7 +940,7 @@
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop')" data-label="Garage Bar &amp; Grill"></div>
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=500&auto=format&fit=crop')" data-label="Ridgeview Farm"></div>
                     <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=500&auto=format&fit=crop')" data-label="Community Events"></div>
-                    <div class="collage-item wide" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=500&auto=format&fit=crop')" data-label="The Lake at Iron Ridge"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=500&auto=format&fit=crop')" data-label="The Lake at Iron Ridge"></div>
                 </div>
                 <div class="about-text">
                     <h3>The Iron Ridge <em style="color:var(--gold);font-style:normal;">Compound</em></h3>
