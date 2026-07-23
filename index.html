@@ -327,19 +327,46 @@
             align-items: center;
         }
 
-        .about-image {
-            position: relative;
+        .about-collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            gap: 10px;
             border-radius: 12px;
             overflow: hidden;
-            min-height: 400px;
-            background: url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 420px;
         }
 
-        .about-image::after {
-            content: '';
+        .collage-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            min-height: 95px;
+        }
+
+        .collage-item::after {
+            content: attr(data-label);
             position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, rgba(45,106,79,0.3), transparent);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 10px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--text);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .collage-item.tall {
+            grid-row: span 2;
+        }
+
+        .collage-item.wide {
+            grid-column: span 2;
         }
 
         .about-text h3 {
@@ -806,8 +833,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-image {
-                min-height: 280px;
+            .about-collage {
+                min-height: 300px;
+            }
+            .collage-item {
+                min-height: 70px;
             }
 
             .footer-grid {
@@ -889,7 +919,7 @@
             <div class="hero-badge">Opening Summer 2026</div>
             <h1>Where <span>Brotherhood</span><br />Meets Purpose</h1>
             <p>
-                150 acres of training grounds, recovery, and community. Build the strongest version of yourself — physically, mentally, and as a man.
+                150 acres of training grounds, recovery, and community. Build the strongest version of yourself.
             </p>
             <div class="hero-buttons">
                 <a href="#pricing" class="btn btn-primary">View Membership</a>
@@ -902,7 +932,16 @@
     <section class="section" id="about">
         <div class="container">
             <div class="about-grid fade-up">
-                <div class="about-image"></div>
+                <div class="about-collage">
+                    <div class="collage-item tall" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=500&auto=format&fit=crop')" data-label="The Cage &amp; Mat"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?q=80&w=500&auto=format&fit=crop')" data-label="Thunder Ridge Range"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=500&auto=format&fit=crop')" data-label="Air Zone"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=500&auto=format&fit=crop')" data-label="Recovery Lodge"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop')" data-label="Garage Bar &amp; Grill"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1480044965905-02098d419e96?q=80&w=500&auto=format&fit=crop')" data-label="Ridgeview Farm"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=500&auto=format&fit=crop')" data-label="Community Events"></div>
+                </div>
                 <div class="about-text">
                     <h3>The Iron Ridge <em style="color:var(--gold);font-style:normal;">Compound</em></h3>
                     <p>
@@ -943,7 +982,7 @@
 
                 <!-- Gym -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-dumbbell"></i></div>
                     </div>
                     <div class="amenity-body">
@@ -959,7 +998,7 @@
 
                 <!-- MMA / BJJ -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1599058917765-a780eda07a3e?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-fist-raised"></i></div>
                     </div>
                     <div class="amenity-body">
@@ -975,7 +1014,7 @@
 
                 <!-- Gun Range -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-crosshairs"></i></div>
                     </div>
                     <div class="amenity-body">
@@ -991,7 +1030,7 @@
 
                 <!-- FPV Drone -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-drone"></i></div>
                     </div>
                     <div class="amenity-body">
@@ -1007,7 +1046,7 @@
 
                 <!-- Therapy -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1541480601022-2308c0f02487?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-hot-tub"></i></div>
                     </div>
                     <div class="amenity-body">
@@ -1039,7 +1078,7 @@
 
                 <!-- Farm -->
                 <div class="amenity-card fade-up">
-                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=800&auto=format&fit=crop')">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1480044965905-02098d419e96?q=80&w=800&auto=format&fit=crop')">
                         <div class="icon-overlay"><i class="fas fa-paw"></i></div>
                     </div>
                     <div class="amenity-body">
