@@ -6,7 +6,7 @@
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0" />
-    <title>Iron Ridge – The Men's Compound</title>
+    <title>Mead Heritage Ranch – Where Families Level Up Together</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -341,11 +341,11 @@
 
         .about-collage {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 12px;
             border-radius: 12px;
             overflow: hidden;
-            min-height: 420px;
+            min-height: 500px;
         }
 
         .collage-item {
@@ -356,7 +356,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: var(--dark2);
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 3 / 2;
         }
 
         .collage-item::after {
@@ -439,6 +439,62 @@
             transform: translateY(-6px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             border-color: rgba(212, 163, 115, 0.2);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 115, 0.08);
+            transition: transform var(--transition), box-shadow var(--transition);
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border-color: rgba(212, 163, 115, 0.2);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-body {
+            padding: 20px 16px;
+        }
+
+        .team-body h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .team-body .team-title {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .team-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .team-body .team-icon {
+            margin-top: 12px;
+            font-size: 1.4rem;
+            color: var(--gold);
         }
 
         .amenity-img {
@@ -839,7 +895,11 @@
             }
 
             .about-collage {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-grid {
@@ -869,6 +929,14 @@
             }
 
             .amenity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-collage {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .team-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -903,10 +971,11 @@
 
     <!-- ═══ NAV ═══ -->
     <nav id="navbar">
-        <div class="nav-logo">IRON <span>RIDGE</span></div>
+        <div class="nav-logo">MEAD <span>HERITAGE RANCH</span></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#team">Team</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#signup" class="nav-cta">Join Now</a></li>
         </ul>
@@ -918,14 +987,15 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Opening Summer 2026</div>
-            <h1>Where <span>Brotherhood</span><br />Meets Purpose</h1>
+            <div class="hero-badge">Opening Summer 2031</div>
+            <h1>Where <span>Families</span><br />Level Up Together</h1>
             <p>
-                150 acres of training grounds, recovery, and community. Build the strongest version of yourself. The mission is you.
+                300 acres where families build strength, grow together, and forge lasting community. Every trail, field, and facility is designed to help you level up as a family.
             </p>
+            <p class="hero-quote" style="font-size: 1.3rem; font-style: italic; color: var(--gold); margin-top: 16px;">"Your family is the mission."</p>
             <div class="hero-buttons">
                 <a href="#pricing" class="btn btn-primary">View Membership</a>
-                <a href="#amenities" class="btn btn-outline">Explore the Compound</a>
+                <a href="#amenities" class="btn btn-outline">Explore the Ranch</a>
             </div>
         </div>
     </section>
@@ -935,31 +1005,36 @@
         <div class="container">
             <div class="about-grid fade-up">
                 <div class="about-collage">
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=500&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=500&auto=format&fit=crop')" data-label="The Cage &amp; Mat"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=500&auto=format&fit=crop')" data-label="Iron Ridge Range"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=500&auto=format&fit=crop')" data-label="Air Zone"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1681980016814-0bac16721969?q=80&w=500&auto=format&fit=crop')" data-label="Recovery Lodge"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500&auto=format&fit=crop')" data-label="Garage Bar &amp; Grill"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=500&auto=format&fit=crop')" data-label="Ridgeview Farm"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=500&auto=format&fit=crop')" data-label="Community Events"></div>
-                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=500&auto=format&fit=crop')" data-label="The Lake at Iron Ridge"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756115484694-009466dbaa67?q=80&w=800&auto=format&fit=crop')" data-label="Iron Haven Gym"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517344075787-18afd9c2eae5?q=80&w=800&auto=format&fit=crop')" data-label="The Cage &amp; Mat"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1748443124913-d2505a21d891?q=80&w=800&auto=format&fit=crop')" data-label="Ranch Range"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=800&auto=format&fit=crop')" data-label="Air Zone"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1681980016814-0bac16721969?q=80&w=800&auto=format&fit=crop')" data-label="Recovery Lodge"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop')" data-label="Garage Bar &amp; Grill"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?q=80&w=800&auto=format&fit=crop')" data-label="Ridgeview Farm"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop')" data-label="Community Events"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1752650143951-2cbc5d2cba69?q=80&w=800&auto=format&fit=crop')" data-label="Heritage Lake"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1670254494696-909c4e429575?q=80&w=800&auto=format&fit=crop')" data-label="Golf Course"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1771784630899-f95d3ba54e5d?q=80&w=800&auto=format&fit=crop')" data-label="Archery"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1650939434244-eded1d6e10b7?q=80&w=800&auto=format&fit=crop')" data-label="Basketball Courts"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1756672619539-b44173fffbe8?q=80&w=800&auto=format&fit=crop')" data-label="Tennis Courts"></div>
+                    <div class="collage-item" style="background-image:url('https://images.unsplash.com/photo-1498066370397-ccef12c288c4?q=80&w=800&auto=format&fit=crop')" data-label="Olympic Pool"></div>
                 </div>
                 <div class="about-text">
-                    <h3>The Iron Ridge <em style="color:var(--gold);font-style:normal;">Compound</em></h3>
+                    <h3>The Mead Heritage Ranch <em style="color:var(--gold);font-style:normal;">Family Destination</em></h3>
                     <p>
-                        Iron Ridge isn't just a membership — it's a brotherhood. Set on 150 acres of private land, our compound is designed for men who want more than a typical gym or country club. This is a place to train hard, recover smart, learn new skills, and build lasting bonds.
+                        Mead Heritage Ranch isn't just a membership — it's a family destination and a community. Set on 300 acres of private land, our property is designed for families who want more than a typical gym or country club. This is a place to train together, build skills, create lasting memories, and grow closer as a family — surrounded by other families on the same mission.
                     </p>
                     <p>
-                        From the clang of iron in the gym and the crack of rounds downrange, to the rip of FPV drones racing through the trees and the warmth of a fire pit under the stars — every corner of this property is built for purpose-driven men.
+                        From strength training and martial arts to marksmanship, archery, swimming, basketball, tennis, and golf — every discipline is an opportunity to grow together. Weekend cookouts, bonfire gatherings, community events, and farm days bring everyone together. You'll grow stronger as individuals and closer as a family, rooted in a community that shares your values.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
-                            <div class="stat-number">150</div>
+                            <div class="stat-number">300</div>
                             <div class="stat-label">Acres</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">9</div>
+                            <div class="stat-number">14</div>
                             <div class="stat-label">Facilities</div>
                         </div>
                         <div class="stat">
@@ -976,9 +1051,9 @@
     <section class="section amenities" id="amenities">
         <div class="container">
             <div class="section-header fade-up">
-                <h2>Explore the <em>Compound</em></h2>
+                <h2>Explore the <em>Destination</em></h2>
                 <div class="section-divider"></div>
-                <p>Nine distinct facilities spread across 150 acres — each built for a different part of the journey.</p>
+                <p>Fourteen distinct facilities spread across 300 acres — each built for a different part of the family journey.</p>
             </div>
 
             <div class="amenity-grid">
@@ -1006,11 +1081,11 @@
                     </div>
                     <div class="amenity-body">
                         <h3>The Cage &amp; Mat</h3>
-                        <p>Professional grappling mats, MMA cages, heavy bags, and dedicated BJJ classes led by experienced instructors. Train striking, wrestling, and submissions.</p>
+                        <p>Train boxing and Brazilian Jiu-Jitsu in a dedicated fight space with pro-grade rings, mats, and heavy bags. Classes for all levels — from first-timers to competitive fighters.</p>
                         <div class="amenity-tags">
+                            <span>Boxing Classes</span>
                             <span>BJJ Classes</span>
-                            <span>MMA Training</span>
-                            <span>Grappling Mats</span>
+                            <span>All Levels Welcome</span>
                         </div>
                     </div>
                 </div>
@@ -1021,7 +1096,7 @@
                         <div class="icon-overlay"><i class="fas fa-crosshairs"></i></div>
                     </div>
                     <div class="amenity-body">
-                        <h3>Iron Ridge Range</h3>
+                        <h3>Ranch Range</h3>
                         <p>Multiple outdoor ranges including pistol, rifle, and tactical bays. Monthly competitions, certified safety courses, and marksmanship training for all skill levels.</p>
                         <div class="amenity-tags">
                             <span>Pistol &amp; Rifle</span>
@@ -1034,7 +1109,7 @@
                 <!-- FPV Drone -->
                 <div class="amenity-card fade-up">
                     <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1624903164200-ef655836a5ac?q=80&w=800&auto=format&fit=crop')">
-                        <div class="icon-overlay"><i class="fas fa-drone"></i></div>
+                        <div class="icon-overlay"><i class="fas fa-helicopter"></i></div>
                     </div>
                     <div class="amenity-body">
                         <h3>Air Zone</h3>
@@ -1102,7 +1177,7 @@
                     </div>
                     <div class="amenity-body">
                         <h3>Community &amp; Events</h3>
-                        <p>Weekly meetups, group training sessions, guest speakers, competition watch parties, and seasonal compound-wide events. This is where brothers become family.</p>
+                        <p>Weekly meetups, group training sessions, guest speakers, competition watch parties, and seasonal compound-wide events. This is where families find their people.</p>
                         <div class="amenity-tags">
                             <span>Weekly Events</span>
                             <span>Group Training</span>
@@ -1117,13 +1192,188 @@
                         <div class="icon-overlay"><i class="fas fa-water"></i></div>
                     </div>
                     <div class="amenity-body">
-                        <h3>The Lake at Iron Ridge</h3>
+                        <h3>Heritage Lake</h3>
                         <p>A private 6-acre lake with a wooden fishing pier, shaded sitting areas, and catch-and-release fishing. Perfect for quiet mornings with a rod or bringing the family to relax by the water.</p>
                         <div class="amenity-tags">
                             <span>Fishing Pier</span>
                             <span>Family Friendly</span>
                             <span>Catch &amp; Release</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Golf -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1670254494696-909c4e429575?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-golf-ball"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Golf Course</h3>
+                        <p>A scenic 9-hole course with a full driving range and putting course. Perfect for family tee times, junior golf clinics, and weekend scrambles.</p>
+                        <div class="amenity-tags">
+                            <span>9-Hole Course</span>
+                            <span>Driving Range</span>
+                            <span>Junior Clinics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archery -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1771784630899-f95d3ba54e5d?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-bullseye"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Archery</h3>
+                        <p>Four covered lanes with professional targets and beginner instruction. Master the bow as a family activity that builds focus and patience.</p>
+                        <div class="amenity-tags">
+                            <span>Covered Lanes</span>
+                            <span>Beginner Instruction</span>
+                            <span>Family Activity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basketball -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1650939434244-eded1d6e10b7?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-basketball-ball"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Basketball Courts</h3>
+                        <p>Two full-size outdoor courts with night lighting. Run pick-up games, family tournaments, or work on your jumper under the lights.</p>
+                        <div class="amenity-tags">
+                            <span>Full-Size Courts</span>
+                            <span>Night Lighting</span>
+                            <span>Family Tournaments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tennis -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1756672619539-b44173fffbe8?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-table-tennis"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Tennis Courts</h3>
+                        <p>Two Har-Tru hydro courts with professional surface. Lessons, clinics, and open play for all ages and skill levels.</p>
+                        <div class="amenity-tags">
+                            <span>Har-Tru Courts</span>
+                            <span>Lessons &amp; Clinics</span>
+                            <span>All Skill Levels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Olympic Pool -->
+                <div class="amenity-card fade-up">
+                    <div class="amenity-img" style="background-image:url('https://images.unsplash.com/photo-1498066370397-ccef12c288c4?q=80&w=800&auto=format&fit=crop')">
+                        <div class="icon-overlay"><i class="fas fa-swimmer"></i></div>
+                    </div>
+                    <div class="amenity-body">
+                        <h3>Olympic Pool</h3>
+                        <p>A 50-meter heated Olympic pool with dedicated lap lanes, diving area, and kids' splash zone. Perfect for family swim time, lap swimming, and cooling off after a day on the ranch.</p>
+                        <div class="amenity-tags">
+                            <span>50-Meter Pool</span>
+                            <span>Diving Area</span>
+                            <span>Kids' Splash Zone</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TEAM ═══ -->
+    <section class="section team" id="team">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Meet the <em>Family</em></h2>
+                <div class="section-divider"></div>
+                <p>The people behind Mead Heritage Ranch who make every visit unforgettable.</p>
+            </div>
+
+            <div class="team-grid">
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Devin</h4>
+                        <div class="team-title">Founder &amp; Owner</div>
+                        <p>A Marine Corps veteran with a vision — Devin founded Mead Heritage Ranch to create a place where purpose-driven families can train, grow, and build community together. His leadership sets the tone for everything we do.</p>
+                        <div class="team-icon"><i class="fas fa-mountain"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Mayra</h4>
+                        <div class="team-title">IT Director</div>
+                        <p>Mayra keeps the ranch connected. She manages our technology infrastructure — from member systems to facility operations — ensuring a seamless experience for every family that visits.</p>
+                        <div class="team-icon"><i class="fas fa-laptop-code"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Jamie</h4>
+                        <div class="team-title">Operations Director</div>
+                        <p>Jamie brings years of small business expertise to the ranch. She oversees daily operations, member relations, and business growth — making sure families feel welcomed and everything runs smoothly.</p>
+                        <div class="team-icon"><i class="fas fa-building"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>John</h4>
+                        <div class="team-title">FPV Drone &amp; Air Zone Lead</div>
+                        <p>A former Marine with a passion for flight, John leads our Air Zone program. He builds, flies, and teaches FPV drone operation — from first-time pilots to competitive racing.</p>
+                        <div class="team-icon"><i class="fas fa-drone"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1694459471264-6c4c2ebf26da?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Will</h4>
+                        <div class="team-title">Marksmanship &amp; Range Director</div>
+                        <p>With a background as a military sniper and years of USPSA and precision rifle competition, Will brings unmatched expertise to the range. He leads family marksmanship training at every skill level.</p>
+                        <div class="team-icon"><i class="fas fa-crosshairs"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1765302840608-6c67281260c3?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Chris</h4>
+                        <div class="team-title">Combat Sports Director</div>
+                        <p>A black belt in Brazilian Jiu-Jitsu and a champion boxer, Chris brings world-class fight training to The Cage &amp; Mat. He coaches everyone from first-timers to competitors with patience and expertise.</p>
+                        <div class="team-icon"><i class="fas fa-fist-raised"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1693163637018-cec278130a11?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Trevor</h4>
+                        <div class="team-title">Golf &amp; Outdoor Programs</div>
+                        <p>An Army veteran who brings discipline and precision to the golf course. Trevor leads family golf clinics, course management, and outdoor adventure programs.</p>
+                        <div class="team-icon"><i class="fas fa-flag"></i></div>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img" style="background-image:url('https://images.unsplash.com/photo-1750943082154-663e88a6ffe9?q=80&w=400&auto=format&fit=crop')"></div>
+                    <div class="team-body">
+                        <h4>Josh</h4>
+                        <div class="team-title">Head Chef &amp; Restaurant Manager</div>
+                        <p>Josh runs the kitchen at The Garage Bar &amp; Grill. A seasoned chef and restaurant manager, he crafts meals that bring families together around the table — made with fresh ingredients and a whole lot of passion.</p>
+                        <div class="team-icon"><i class="fas fa-utensils"></i></div>
                     </div>
                 </div>
 
@@ -1196,7 +1446,7 @@
     <section class="section signup-section" id="signup">
         <div class="container">
             <div class="section-header fade-up">
-                <h2>Join the <em>Brotherhood</em></h2>
+                <h2>Join the <em>Family</em></h2>
                 <div class="section-divider"></div>
                 <p>Fill out the form below and we'll reach out with next steps.</p>
             </div>
@@ -1238,7 +1488,7 @@
 
                     <div class="form-checkbox">
                         <input type="checkbox" id="agree" required />
-                        <label for="agree">I agree to receive updates about Iron Ridge membership and opening announcements.</label>
+                        <label for="agree">I agree to receive updates about Mead Heritage Ranch membership and opening announcements.</label>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit Interest</button>
@@ -1247,7 +1497,7 @@
                 <div class="success-msg" id="successMsg">
                     <i class="fas fa-check-circle"></i>
                     <h4>You're on the list!</h4>
-                    <p>We'll reach out within 48 hours with more details about your Iron Ridge membership.</p>
+                    <p>We'll reach out within 48 hours with more details about your Mead Heritage Ranch membership.</p>
                 </div>
             </div>
         </div>
@@ -1258,18 +1508,26 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>IRON RIDGE</h3>
-                    <p>150 acres of training, recovery, and brotherhood. Opening Summer 2026.</p>
+                    <h3>MEAD HERITAGE RANCH</h3>
+                    <p>300 acres of training, recovery, and family living. Opening Summer 2031.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Facilities</h4>
                     <ul>
                         <li><a href="#amenities">Iron Haven Gym</a></li>
                         <li><a href="#amenities">The Cage &amp; Mat</a></li>
-                        <li><a href="#amenities">Iron Ridge Range</a></li>
+                        <li><a href="#amenities">Ranch Range</a></li>
                         <li><a href="#amenities">Air Zone</a></li>
                         <li><a href="#amenities">Recovery Lodge</a></li>
+                        <li><a href="#amenities">Garage Bar &amp; Grill</a></li>
+                        <li><a href="#amenities">Ridgeview Farm</a></li>
+                        <li><a href="#amenities">Community Events</a></li>
                         <li><a href="#amenities">The Lake</a></li>
+                        <li><a href="#amenities">Golf Course</a></li>
+                        <li><a href="#amenities">Archery</a></li>
+                        <li><a href="#amenities">Basketball Courts</a></li>
+                        <li><a href="#amenities">Tennis Courts</a></li>
+                        <li><a href="#amenities">Olympic Pool</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1283,13 +1541,13 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:hello@ironridge.com">hello@ironridge.com</a></li>
-                        <li><a href="#">(555) IRON-RDG</a></li>
+                        <li><a href="mailto:hello@meadheritageranch.com">hello@meadheritageranch.com</a></li>
+                        <li><a href="#">(555) RANCH-MHR</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Iron Ridge Compound. All rights reserved.</p>
+                <p>&copy; 2026 Mead Heritage Ranch. All rights reserved.</p>
                 <div class="footer-socials">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>

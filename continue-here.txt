@@ -1,0 +1,7 @@
+﻿Iron Ridge Website
+==================
+File: C:\Users\devin\OneDrive\Desktop\AI workshop project\index.html
+Last opened: 2026-07-23 12:33
+
+Open this file in your browser to review the site.
+To continue editing, open the folder in VS Code or text editor.
